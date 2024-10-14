@@ -6,26 +6,42 @@ import org.openqa.selenium.WebElement;
 
 public class loginPageObject {
 
+
     private static WebElement element=null;
+    //WebDriver driver=null;
 
-    //Username
-    public static WebElement username(WebDriver driver)
+    // hamburgerMenu button
+    public static WebElement Menubtn(WebDriver driver)
     {
-        element= driver.findElement(By.id("username"));
+        element=driver.findElement(By.id("menu-toggle"));
+        return element;
+    }
+    public static WebElement loginMenuBtn(WebDriver driver)
+    {
+        element=driver.findElement(By.linkText("Login"));
         return element;
     }
 
-    //Username
-    public static WebElement password(WebDriver driver)
+    public static WebElement appointmentButton(WebDriver driver)
     {
-        element= driver.findElement(By.id("password"));
+        element=driver.findElement(By.id("btn-make-appointment"));
         return element;
     }
 
-    //Username
+    public static WebElement UserNameBtn(WebDriver driver)
+    {
+        element=driver.findElement(By.id("txt-username"));
+        return element;
+    }
+
+    public static WebElement PasswordBtn(WebDriver driver)
+    {
+        element=driver.findElement(By.id("txt-password"));
+        return element;
+    }
     public static WebElement loginBtn(WebDriver driver)
     {
-        element= driver.findElement(By.id("loginbtn"));
+        element=driver.findElement(By.id("btn-login"));
         return element;
     }
 }
