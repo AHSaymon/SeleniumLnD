@@ -35,9 +35,9 @@ public class urlVisit {
             password.sendKeys("Admin@bs23");
             signInBtn.click();
 
-            //emplicitlywait
+            //explicit wait
             WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("abcd")));
+            //wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("abcd")));
             driver.quit();
         }
 
