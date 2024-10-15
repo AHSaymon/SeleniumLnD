@@ -19,24 +19,17 @@ public class urlVisit {
         {
             WebDriverManager.chromedriver().setup();
             WebDriver driver=new ChromeDriver();
-            driver.get("http://bs44mdl.cursivetechnology.com/login/index.php");
+            driver.get("https://katalon-demo-cura.herokuapp.com/");
             //username
-            WebElement username= driver.findElement(By.id("username"));
-            WebElement password= driver.findElement(By.id("password"));
-            WebElement signInBtn=driver.findElement(By.id("loginbtn"));
-            username.sendKeys("hamid");
-
-            //implicitlyWait example:
-            //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-
-
-            driver.findElement(By.id("abcd")).click();
-            password.sendKeys("Admin@bs23");
+            WebElement username= driver.findElement(By.id("txt-username"));
+            WebElement password= driver.findElement(By.id("txt-password"));
+            WebElement signInBtn=driver.findElement(By.id("btn-login"));
+            username.sendKeys("John Doe");
+            password.sendKeys("ThisIsNotAPassword");
             signInBtn.click();
 
             //explicit wait
-            WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+            //WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
             //wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("abcd")));
             driver.quit();
         }
