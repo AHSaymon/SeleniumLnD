@@ -15,6 +15,7 @@ public class invalidLoginFunctionalityTest {
 
     public static void LoginPage()
     {
+        //login
         WebDriverManager.chromedriver().setup();
         driver=new ChromeDriver();
         //Project url
@@ -27,5 +28,6 @@ public class invalidLoginFunctionalityTest {
         loginPageObject.loginBtn(driver).click();
         WebElement errorMessage = driver.findElement(By.xpath("//p[contains(text(), 'Login failed!')]"));
         Assert.assertTrue(errorMessage.isDisplayed());
+        driver.close();
     }
 }
