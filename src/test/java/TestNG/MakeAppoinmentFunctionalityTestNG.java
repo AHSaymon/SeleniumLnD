@@ -1,28 +1,33 @@
-package ActionClass;
-import ObjectClass.MakeAppoinmentObject;
-//import ActionClass.loginFunctionalityTest;
+package TestNG;
+
+import ObjectClass.HomePageObject;
 import ObjectClass.loginPageObject;
+import ObjectClass.MakeAppoinmentObject;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.By;
-//import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
-public class MakeAppoinmentFunctionalityTest {
+public class MakeAppoinmentFunctionalityTestNG {
     static WebDriver driver=null;
-    public static void main(String[] args) {
-        makeAppointmentPageTest();
-    }
 
-    public static void makeAppointmentPageTest()
+    @BeforeTest
+    public void setUP()
     {
         WebDriverManager.chromedriver().setup();
         driver=new ChromeDriver();
+
+    }
+
+    @Test
+    public void TestCaseExecution() throws InterruptedException {
+
         //Project url
         driver.get("https://katalon-demo-cura.herokuapp.com/");
-
-        driver.manage().window().maximize();
 
         //login Page
         loginPageObject.appointmentButton(driver).click();
@@ -38,6 +43,13 @@ public class MakeAppoinmentFunctionalityTest {
         MakeAppoinmentObject.visitDateButton(driver).sendKeys("15/10/2024");
         MakeAppoinmentObject.commentTextBox(driver).sendKeys("Sinus Issue");
         MakeAppoinmentObject.bookBtn(driver).click();
+
+    }
+
+    @AfterTest
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(5000);
+        driver.close();
 
     }
 }
