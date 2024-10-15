@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class loginFunctionalityTest {
 
+    private static WebDriver driver=null;
     public static void main(String[] args) {
     loginPage();
     }
@@ -13,12 +14,10 @@ public class loginFunctionalityTest {
     public static void loginPage()
     {
         WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        //Project url
-        driver.get("https://katalon-demo-cura.herokuapp.com/");
-        loginPageObject.appointmentButton(driver).click();
-        loginPageObject.UserNameBtn(driver).sendKeys("John Doe");
-        loginPageObject.PasswordBtn(driver).sendKeys("ThisIsNotAPassword");
+        driver=new ChromeDriver();
+        driver.get("http://bs44mdl.cursivetechnology.com/login/index.php");
+        loginPageObject.username(driver).sendKeys("hamid");
+        loginPageObject.password(driver).sendKeys("Admin@bs23");
         loginPageObject.loginBtn(driver).click();
 
     }
